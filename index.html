@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategi Supply Chain - Latihan Bab 2</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --container-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-light: #dbeafe;
+            --secondary: #0ea5e9;
+            --border-color: #e2e8f0;
+            --accent: #f59e0b;
+            --th-text: var(--primary);
+            --tr-hover: #f1f5f9;
+            --highlight-bg: #fffbeb;
+            --highlight-title: #b45309;
+            --highlight-shadow: none;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --container-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-light: #1e3a8a;
+            --secondary: #38bdf8;
+            --border-color: #334155;
+            --accent: #f59e0b;
+            --th-text: #bfdbfe;
+            --tr-hover: #334155;
+            --highlight-bg: #0f172a;
+            --highlight-title: var(--accent);
+            --highlight-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        section {
+            background: var(--container-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--container-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px var(--shadow-color);
+            transition: background-color 0.3s;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            font-weight: 600;
+            color: var(--th-text);
+            font-family: 'Outfit', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: var(--tr-hover);
+        }
+
+        .highlight-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            box-shadow: var(--highlight-shadow);
+            transition: background-color 0.3s;
+        }
+
+        .highlight-title {
+            font-weight: 600;
+            color: var(--highlight-title);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="theme-toggle" id="themeToggle">🌓 Light/Dark Mode</button>
+
+    <div class="container">
+        <header>
+            <h1>Strategi Supply Chain, Segmentasi Layanan, dan Competitive Priorities</h1>
+            <p class="subtitle">Latihan Bab 2 - Analisis Ekosistem & Segmentasi</p>
+
+            <div
+                style="margin-top: 2.5rem; padding: 1.5rem; background: var(--container-bg); border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.2rem; color: var(--secondary);">Kelompok 3
+                    - 4D</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; color: var(--text-main);">Felicia Dewi Harjono</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">023124013</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; color: var(--text-main);">Dito Ibrahim</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">023124067</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; color: var(--text-main);">Salma Jazmin</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">023124075</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; color: var(--text-main);">Syakila Desti Perianto</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">023124084</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; color: var(--text-main);">Raihan Hanif Firdaus</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">023124157</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Latihan 1 -->
+        <section>
+            <h2>Latihan 1: Penentuan Order Winner & Qualifier (Industri FMCG)</h2>
+            <p>Dalam konteks supply chain, <strong>Order Qualifier</strong> adalah syarat minimum agar produk kita
+                "layak dilirik" oleh pelanggan, sedangkan <strong>Order Winner</strong> adalah faktor yang membuat
+                pelanggan akhirnya "memilih" produk kita dibanding kompetitor.</p>
+
+            <h3>Kanal 1: Ritel Modern (Supermarket/Alfamat/Indomaret)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Elemen</th>
+                        <th>Alasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Order Qualifier 1</strong></td>
+                        <td>Dependability (OTIF)</td>
+                        <td>Toko ritel tidak akan bekerja sama jika pengiriman sering terlambat atau jumlahnya kurang,
+                            karena rak yang kosong berarti kehilangan penjualan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Qualifier 2</strong></td>
+                        <td>Kualitas & Compliance</td>
+                        <td>Sertifikasi BPOM, Halal, dan kemasan yang standar adalah syarat mutlak agar produk bisa
+                            dipajang di rak ritel modern.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Winner 1</strong></td>
+                        <td>Cost (Margin & Harga)</td>
+                        <td>Di ritel modern, harga yang kompetitif bagi konsumen dan margin yang menarik bagi pemilik
+                            toko adalah penentu utama produk tersebut diprioritaskan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Winner 2</strong></td>
+                        <td>Flexibility (Promosi)</td>
+                        <td>Kemampuan supply chain untuk mendukung program "Beli 1 Gratis 1" atau promo musiman
+                            (lebaran/nataru) dengan stok yang cukup.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Kanal 2: E-commerce (Official Store di Marketplace)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Elemen</th>
+                        <th>Alasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Order Qualifier 1</strong></td>
+                        <td>Inventory Accuracy</td>
+                        <td>Jika stok di aplikasi tertulis "Tersedia" tapi ternyata kosong saat dipesan, reputasi toko
+                            akan hancur oleh rating buruk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Qualifier 2</strong></td>
+                        <td>Delivery Speed (SLA)</td>
+                        <td>Pelanggan e-commerce mengharapkan paket segera diproses (biasanya <24 jam) agar bisa segera
+                                dikirim oleh kurir.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Winner 1</strong></td>
+                        <td>Innovation (Bundle/Varian)</td>
+                        <td>Kemampuan menawarkan paket bundling unik atau rasa eksklusif yang tidak ditemukan di toko
+                            fisik menjadi daya tarik utama pembeli online.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Order Winner 2</strong></td>
+                        <td>Visibility & Tracking</td>
+                        <td>Kemudahan pelanggan memantau posisi barang secara real-time dan respons chat yang cepat
+                            menjadi nilai tambah yang memenangkan hati pembeli.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <div class="highlight-title">Kesimpulan</div>
+                <p>Perbedaan utama di sini adalah Ritel Modern lebih mengejar efisiensi dan konsistensi (karena volume
+                    besar), sedangkan E-commerce lebih mengejar kecepatan dan variasi (karena melayani individu).</p>
+            </div>
+        </section>
+
+        <!-- Latihan 2 -->
+        <section>
+            <h2>Latihan 2: Matriks Segmentasi Layanan (Service Differentiation)</h2>
+            <p>Tujuan utama dari segmentasi ini adalah menyeimbangkan antara <strong>Service Level</strong> yang
+                dijanjikan dengan <strong>Cost-to-Serve</strong> (biaya untuk melayani) agar perusahaan tetap
+                profitabel.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimensi Layanan</th>
+                        <th>Kelas Premium <br><small>(Key Accounts/High Margin)</small></th>
+                        <th>Kelas Standard <br><small>(Regular B2B/Retailer)</small></th>
+                        <th>Kelas Economy <br><small>(Wholesale/Low Margin/Remote)</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SLA Pengiriman</strong></td>
+                        <td>Jawa: Maks 24 jam.<br>Luar Jawa: Maks 3 hari.</td>
+                        <td>Jawa: 2–4 hari.<br>Luar Jawa: 5–7 hari.</td>
+                        <td>Jawa: 5–10 hari.<br>Luar Jawa: Tergantung jadwal konsolidasi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Minimum Order (MOQ)</strong></td>
+                        <td>Tanpa Minimum Order. Fokus pada ketersediaan stok kapan pun dibutuhkan.</td>
+                        <td>Menengah. (Misal: Minimal 5 karton atau Rp 2 Juta per order)</td>
+                        <td>Tinggi (Bulk). (Misal: Minimal 1 pallet atau Rp 20 Juta per order)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jadwal Pengiriman</strong></td>
+                        <td>On-demand & Fleksibel. Bisa dikirim kapan saja begitu order masuk.</td>
+                        <td>Terjadwal (Fixed). (Misal: Setiap Selasa dan Kamis)</td>
+                        <td>Konsolidasi. Hanya dikirim jika truk sudah penuh (Full Truck Load).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kebijakan Retur</strong></td>
+                        <td>Full Service. Pengambilan retur dilakukan oleh kurir perusahaan, tanpa biaya tambahan.</td>
+                        <td>Conditional. Retur diterima maksimal 7 hari setelah barang sampai, ongkos kirim dibagi dua.
+                        </td>
+                        <td>Restricted. Hanya untuk barang cacat produksi. Biaya kirim retur ditanggung pembeli.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alokasi Stok</strong></td>
+                        <td>Prioritas Utama. Jika stok menipis, segmen ini didahulukan.</td>
+                        <td>Normal. Berdasarkan urutan order (First Come First Served).</td>
+                        <td>Buffer Only. Hanya dikirim jika stok melimpah (setelah segmen lain terpenuhi).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Analisis Strategis</h3>
+            <ul>
+                <li><strong>Mengapa Premium Mendapat SLA Cepat?</strong> Segmen ini biasanya memberikan margin
+                    keuntungan yang besar atau merupakan mitra strategis jangka panjang. Biaya pengiriman ekspres
+                    (last-mile) tertutup oleh nilai transaksi atau loyalitas mereka.</li>
+                <li><strong>Mengapa Economy Harus Menunggu Konsolidasi?</strong> Pelanggan Economy biasanya mengejar
+                    harga murah (diskon besar). Untuk tetap profit, perusahaan harus menekan biaya logistik dengan cara
+                    mengirim barang secara massal (konsolidasi) agar utilisasi kendaraan maksimal.</li>
+                <li><strong>Dampaknya ke Operasional Gudang:</strong> Gudang tidak lagi harus lembur setiap hari untuk
+                    semua order. Mereka bisa memprioritaskan pengepakan untuk segmen Premium di pagi hari, sementara
+                    segmen Economy bisa dikerjakan saat beban kerja sedang santai (off-peak).</li>
+            </ul>
+
+            <div class="highlight-box">
+                <div class="highlight-title">Catatan Penting</div>
+                <p>Segmentasi ini harus dikomunikasikan secara transparan oleh tim Sales agar tidak ada pelanggan
+                    Economy yang merasa dianaktirikan, melainkan mereka sadar bahwa harga murah yang mereka dapatkan
+                    adalah kompensasi dari layanan yang lebih santai.</p>
+            </div>
+        </section>
+
+        <!-- Latihan 3 -->
+        <section>
+            <h2>Latihan 3: Studi Mini Postponement (Industri Cat)</h2>
+
+            <ol>
+                <li><strong>Produk yang Dipilih:</strong> Cat Tembok Dekoratif (dengan ribuan pilihan warna).</li>
+                <li><strong>Penempatan Decoupling Point:</strong> Titik Decoupling berada di Toko Ritel / Depot Bangunan
+                    (titik paling hilir yang dekat dengan konsumen). <br>
+                    <em>Penjelasan:</em> Di atas titik ini (dari pabrik hingga gudang distributor), produk dikelola
+                    berdasarkan forecast dalam bentuk "Base Paint" (cat dasar tanpa warna). Begitu ada pesanan spesifik
+                    dari pelanggan di toko, aliran berubah menjadi pull (berbasis pesanan) di mana warna baru
+                    dicampurkan.
+                </li>
+                <li><strong>Proses yang Ditunda (Postponed):</strong> Proses Pencampuran Warna (Tinting). Pabrik tidak
+                    memproduksi 1.000 kaleng warna khusus lalu mengirimnya ke seluruh Indonesia. Pabrik hanya
+                    memproduksi cat dasar (putih/netral). <br>
+                    <em>Diferensiasi Produk:</em> Penambahan pigmen warna baru dilakukan di toko menggunakan mesin
+                    tinting tepat saat pembeli melakukan transaksi.
+                </li>
+            </ol>
+
+            <h3>Analisis Manfaat dan Risiko</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Manfaat</th>
+                        <th>Risiko</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Inventory (Persediaan)</strong></td>
+                        <td>Efisiensi SKU: Perusahaan hanya perlu stok sedikit varian base paint daripada stok ribuan
+                            kode warna. Ini menurunkan modal kerja yang tertanam di stok (low working capital).</td>
+                        <td>Stok Pigmen & Kaleng: Jika stok pigmen warna tertentu habis atau kaleng kosong, pesanan
+                            tidak bisa dipenuhi meskipun cat dasar tersedia.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Layanan (Service)</strong></td>
+                        <td>Ketersediaan 100%: Pelanggan hampir pasti mendapatkan warna apa pun yang mereka inginkan
+                            tanpa risiko "stok warna X sedang kosong".</td>
+                        <td>Ketergantungan Mesin: Jika mesin tinting di toko rusak atau operator tidak terlatih, layanan
+                            terhenti total di titik tersebut.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logistik</strong></td>
+                        <td>Pengiriman dari pabrik ke gudang regional lebih sederhana dan dalam volume besar (efisien).
+                        </td>
+                        <td>Perlu investasi alat (mesin tinting) dan pelatihan di banyak titik ritel.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <div class="highlight-title">Notes</div>
+                <p>Strategi ini sangat cocok untuk pasar Indonesia yang luas. Bayangkan jika produsen harus menyetok
+                    semua varian warna di setiap pulau; biaya gudang akan membengkak dan banyak warna yang tidak laku
+                    akan kadaluwarsa (obsolete). Dengan postponement, risiko salah prediksi warna bisa diminimalisir.
+                </p>
+            </div>
+        </section>
+
+        <!-- Latihan 4 -->
+        <section>
+            <h2>Latihan 4: Analisis Strategi OTIF Luar Jawa (85% → 95%)</h2>
+            <p>Berikut adalah perbandingan dua opsi strategi untuk mencapai target OTIF tersebut:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimensi</th>
+                        <th>Opsi A: Menambah Hub Regional <br><small>(Misal di Medan, Makassar, Balikpapan)</small></th>
+                        <th>Opsi B: Optimalisasi Jadwal & Buffer <br><small>(Tetap Terpusat di Jawa)</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kecepatan (SLA)</strong></td>
+                        <td>Sangt Cepat. Barang sudah ada di pulau tujuan, pengiriman last-mile hanya butuh 1–2 hari.
+                        </td>
+                        <td>Lambat. Masih bergantung pada jadwal kapal/pesawat dari Jawa (bisa 5–14 hari).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biaya (Cost)</strong></td>
+                        <td>Tinggi (Fixed Cost). Ada biaya sewa gudang, gaji karyawan baru, dan biaya operasional di
+                            tiap hub.</td>
+                        <td>Tinggi (Variable Cost). Biaya transportasi per unit lebih mahal karena sering kirim dalam
+                            jumlah kecil atau pakai udara agar cepat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cash (Inventory)</strong></td>
+                        <td>Boros. Terjadi penggandaan stok (stock duplication) di banyak lokasi. Modal kerja tertanam
+                            lebih banyak.</td>
+                        <td>Efisien. Stok terpusat di satu titik. Safety stock total lebih rendah karena adanya risk
+                            pooling.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risiko (Risk)</strong></td>
+                        <td>Stok Mati (Dead Stock). Risiko barang tidak laku di satu hub sementara di hub lain
+                            kekurangan stok.</td>
+                        <td>Gangguan Logistik. Risiko cuaca buruk, pelabuhan macet, atau jadwal kapal batal yang
+                            langsung merusak OTIF.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Analisis Mendalam untuk Konteks Indonesia</h3>
+            <ol>
+                <li><strong>Mengapa Opsi A Unggul untuk OTIF 95%?</strong><br>
+                    Di Indonesia, kendala terbesar luar Jawa adalah kepastian jadwal kapal. Jika kamu tetap mengirim
+                    dari Jawa, keterlambatan kapal 2 hari saja akan membuat OTIF kamu gagal. Dengan Hub Regional, barang
+                    sudah melewati "jalur merah" (laut) sebelum pelanggan memesan. Begitu ada pesanan, barang tinggal
+                    dikirim lewat darat. Inilah cara paling pasti untuk mencapai angka 95%.</li>
+                <li><strong>Kapan Memilih Opsi B?</strong><br>
+                    Opsi B lebih rasional jika produk kamu memiliki nilai tinggi tapi volume kecil (seperti handphone
+                    atau spare part mahal) yang memungkinkan dikirim via udara. Jika produknya adalah deterjen atau
+                    barang rumah tangga yang berat, Opsi B akan sangat mahal di ongkos kirim.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <div class="highlight-title">Kesimpulan & Rekomendasi</div>
+                <p>Jika targetnya adalah keunggulan layanan (95% OTIF) seperti bahasan segmentasi inventory di bab 2.6,
+                    secara konsisten di Indonesia Timur atau Sumatera:</p>
+                <ul>
+                    <li>Gunakan <strong>Opsi A (Regional Hub)</strong> untuk produk Fast Mover (laris manis).</li>
+                    <li>Gunakan <strong>Opsi B (Centralized)</strong> untuk produk Slow Mover agar tidak ada stok yang
+                        "basi" di gudang daerah.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Latihan 5 -->
+        <section>
+            <h2>Latihan 5: Diskusi Kasus – Layanan Cepat untuk Semua?</h2>
+            <p><strong>Kebijakan:</strong> "SLA 2 hari untuk semua pelanggan di seluruh Indonesia."</p>
+
+            <h3>1. Argumen Pro (Mengapa ini terlihat menarik?)</h3>
+            <ul>
+                <li><strong>Keunggulan Kompetitif:</strong> Menjadi market leader karena memberikan standar layanan
+                    tertinggi yang mungkin tidak bisa dilakukan kompetitor.</li>
+                <li><strong>Kesederhanaan Operasional (di sisi Sales):</strong> Tim sales sangat mudah berjualan karena
+                    tidak perlu menghafal tabel SLA yang rumit. Satu janji untuk semua.</li>
+                <li><strong>Kepuasan Pelanggan Instan:</strong> Pada awalnya, semua pelanggan akan merasa sangat
+                    dihargai (seperti yang diceritakan pada vignette pembuka).</li>
+            </ul>
+
+            <h3>2. Argumen Kontra (Mengapa ini berbahaya?)</h3>
+            <ul>
+                <li><strong>Margin Erosion (Kebocoran Profit):</strong> Biaya logistik (seperti kirim via udara atau
+                    kurir instan) untuk pesanan kecil akan memakan seluruh keuntungan dari produk tersebut.</li>
+                <li><strong>Over-Servicing:</strong> Banyak pelanggan B2B (seperti toko grosir) sebenarnya tidak butuh
+                    barang sampai dalam 2 hari; mereka lebih butuh kepastian jadwal mingguan agar mereka bisa mengatur
+                    gudang mereka sendiri.</li>
+                <li><strong>Operasional Chaos:</strong> Gudang akan selalu dalam mode "pemadam kebakaran" (lembur
+                    terus-menerus), yang meningkatkan risiko kesalahan kirim dan burnout karyawan.</li>
+                <li><strong>Inkonsistensi:</strong> Untuk wilayah luar Jawa yang terpencil, janji 2 hari hampir mustahil
+                    dipenuhi secara konsisten tanpa biaya yang sangat tidak masuk akal.</li>
+            </ul>
+
+            <h3>3. Usulan Strategi: Segmentasi yang Rasional</h3>
+            <p>Daripada menyamakan semua, lebih baik menggunakan pendekatan Segmentasi Berbasis Kanal dan Geografi:</p>
+            <ul>
+                <li><strong>E-commerce (B2C):</strong> Tetap gunakan SLA 1-2 hari (area kota besar) karena di kanal ini
+                    kecepatan adalah Order Winner. Gunakan biaya pengiriman yang dibebankan ke pembeli jika ingin
+                    layanan ekspres.</li>
+                <li><strong>Ritel Modern (B2B):</strong> Gunakan SLA Terjadwal (Fixed Schedule). Misalnya, pengiriman
+                    setiap Selasa dan Jumat. Fokusnya bukan pada kecepatan, tapi pada OTIF 100%.</li>
+                <li><strong>Distributor Tradisional:</strong> Gunakan SLA 3-5 hari dengan sistem minimum order yang
+                    tinggi untuk memaksimalkan efisiensi truk (konsolidasi).</li>
+            </ul>
+
+            <h3>4. Cara Mengomunikasikannya ke Tim Sales</h3>
+            <p>Tim Sales biasanya akan protes jika layanan dikurangi. Berikut adalah cara "menjual" ide ini ke mereka:
+            </p>
+            <ul>
+                <li><strong>Gunakan Logika Profitabilitas:</strong> "Kita ingin bonus kalian aman. Jika kita terus kirim
+                    rugi ke pelanggan kecil dengan layanan kilat, profit perusahaan turun, dan itu berdampak ke budget
+                    komisi."</li>
+                <li><strong>Fokus pada Reliabilitas:</strong> "Lebih baik kita janji 4 hari dan selalu tepat (100%
+                    konsisten), daripada janji 2 hari tapi sering meleset. Janji yang meleset justru merusak hubungan
+                    kalian dengan pelanggan."</li>
+                <li><strong>Berikan Opsi:</strong> "Pelanggan tetap bisa dapat 2 hari, asalkan mereka masuk kategori
+                    Premium dengan volume pembelian tertentu. Ini bisa kalian pakai sebagai alat negosiasi agar mereka
+                    meningkatkan jumlah ordernya."</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const rootElement = document.documentElement;
+
+        // Check local storage or system preference on load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            rootElement.setAttribute('data-theme', 'dark');
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = rootElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                rootElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                rootElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+Latihan 1: Penentuan Order Winner & Qualifier (Industri FMCG)
+Dalam konteks supply chain, Order Qualifier adalah syarat minimum agar produk kita "layak dilirik" oleh pelanggan, sedangkan Order Winner adalah faktor yang membuat pelanggan akhirnya "memilih" produk kita dibanding kompetitor.
+Kanal 1: Ritel Modern (Supermarket/Alfamat/Indomaret)
+Kategori
+Elemen
+Alasan
+Order Qualifier 1
+Dependability (OTIF)
+Toko ritel tidak akan bekerja sama jika pengiriman sering terlambat atau jumlahnya kurang, karena rak yang kosong berarti kehilangan penjualan.
+Order Qualifier 2
+Kualitas & Compliance
+Sertifikasi BPOM, Halal, dan kemasan yang standar adalah syarat mutlak agar produk bisa dipajang di rak ritel modern.
+Order Winner 1
+Cost (Margin & Harga)
+Di ritel modern, harga yang kompetitif bagi konsumen dan margin yang menarik bagi pemilik toko adalah penentu utama produk tersebut diprioritaskan.
+Order Winner 2
+Flexibility (Promosi)
+Kemampuan supply chain untuk mendukung program "Beli 1 Gratis 1" atau promo musiman (lebaran/nataru) dengan stok yang cukup.
+Kanal 2: E-commerce (Official Store di Marketplace)
+Kategori
+Elemen
+Alasan
+Order Qualifier 1
+Inventory Accuracy
+Jika stok di aplikasi tertulis "Tersedia" tapi ternyata kosong saat dipesan, reputasi toko akan hancur oleh rating buruk.
+Order Qualifier 2
+Delivery Speed (SLA)
+Pelanggan e-commerce mengharapkan paket segera diproses (biasanya <24 jam) agar bisa segera dikirim oleh kurir.
+Order Winner 1
+Innovation (Bundle/Varian)
+Kemampuan menawarkan paket bundling unik atau rasa eksklusif yang tidak ditemukan di toko fisik menjadi daya tarik utama pembeli online.
+Order Winner 2
+Visibility & Tracking
+Kemudahan pelanggan memantau posisi barang secara real-time dan respons chat yang cepat menjadi nilai tambah yang memenangkan hati pembeli.
+Kesimpulan :
+Perbedaan utama di sini adalah Ritel Modern lebih mengejar efisiensi dan konsistensi (karena volume besar), sedangkan E-commerce lebih mengejar kecepatan dan variasi (karena melayani individu).
+Latihan 2: Matriks Segmentasi Layanan (Service Differentiation)
+Tujuan utama dari segmentasi ini adalah menyeimbangkan antara Service Level yang dijanjikan dengan Cost-to-Serve (biaya untuk melayani) agar perusahaan tetap profitabel.
+Dimensi Layanan
+Kelas Premium (Key Accounts/High Margin)
+Kelas Standard (Regular B2B/Retailer)
+Kelas Economy (Wholesale/Low Margin/Remote)
+SLA Pengiriman
+Jawa: Maks 24 jam.
+Luar Jawa: Maks 3 hari.
+Jawa: 2–4 hari.
+Luar Jawa: 5–7 hari.
+Jawa: 5–10 hari.
+Luar Jawa: Tergantung jadwal konsolidasi.
+Minimum Order (MOQ)
+Tanpa Minimum Order.
+Fokus pada ketersediaan stok kapan pun dibutuhkan.
+Menengah.
+Misal: Minimal 5 karton atau Rp 2 Juta per order.
+Tinggi (Bulk).
+Misal: Minimal 1 pallet atau Rp 20 Juta per order.
+Jadwal Pengiriman
+On-demand & Fleksibel.
+Bisa dikirim kapan saja begitu order masuk.
+Terjadwal (Fixed).
+Misal: Setiap Selasa dan Kamis.
+Konsolidasi.
+Hanya dikirim jika truk sudah penuh (Full Truck Load).
+Kebijakan Retur
+Full Service.
+Pengambilan retur dilakukan oleh kurir perusahaan, tanpa biaya tambahan.
+Conditional.
+Retur diterima maksimal 7 hari setelah barang sampai, ongkos kirim dibagi dua.
+Restricted.
+Hanya untuk barang cacat produksi. Biaya kirim retur ditanggung pembeli.
+Alokasi Stok
+Prioritas Utama.
+Jika stok menipis, segmen ini didahulukan.
+Normal.
+Berdasarkan urutan order (First Come First Served).
+Buffer Only.
+Hanya dikirim jika stok melimpah (setelah segmen lain terpenuhi).
+Analisis Strategis
+Mengapa Premium Mendapat SLA Cepat?
+Segmen ini biasanya memberikan margin keuntungan yang besar atau merupakan mitra strategis jangka panjang. Biaya pengiriman ekspres (last-mile) tertutup oleh nilai transaksi atau loyalitas mereka.
+Mengapa Economy Harus Menunggu Konsolidasi?
+Pelanggan Economy biasanya mengejar harga murah (diskon besar). Untuk tetap profit, perusahaan harus menekan biaya logistik dengan cara mengirim barang secara massal (konsolidasi) agar utilisasi kendaraan maksimal.
+Dampaknya ke Operasional Gudang:
+Gudang tidak lagi harus lembur setiap hari untuk semua order. Mereka bisa memprioritaskan pengepakan untuk segmen Premium di pagi hari, sementara segmen Economy bisa dikerjakan saat beban kerja sedang santai (off-peak).
+Catatan Penting: Segmentasi ini harus dikomunikasikan secara transparan oleh tim Sales agar tidak ada pelanggan Economy yang merasa dianaktirikan, melainkan mereka sadar bahwa harga murah yang mereka dapatkan adalah kompensasi dari layanan yang lebih santai.
+Latihan 3: Studi Mini Postponement (Industri Cat)
+1. Produk yang Dipilih
+Cat Tembok Dekoratif (dengan ribuan pilihan warna).
+2. Penempatan Decoupling Point
+Titik Decoupling: Berada di Toko Ritel / Depot Bangunan (titik paling hilir yang dekat dengan konsumen).
+Penjelasan: Di atas titik ini (dari pabrik hingga gudang distributor), produk dikelola berdasarkan forecast dalam bentuk "Base Paint" (cat dasar tanpa warna). Begitu ada pesanan spesifik dari pelanggan di toko, aliran berubah menjadi pull (berbasis pesanan) di mana warna baru dicampurkan.
+3. Proses yang Ditunda (Postponed)
+Proses Pencampuran Warna (Tinting): Pabrik tidak memproduksi 1.000 kaleng warna "Ocean Blue" dan 1.000 kaleng "Sunset Orange" lalu mengirimnya ke seluruh Indonesia. Pabrik hanya memproduksi cat dasar (putih/netral).
+Diferensiasi Produk: Penambahan pigmen warna baru dilakukan di toko menggunakan mesin tinting tepat saat pembeli melakukan transaksi.
+4. Analisis Manfaat dan Risiko
+Aspek
+Manfaat
+Risiko
+Inventory (Persediaan)
+Efisiensi SKU: Perusahaan hanya perlu stok sedikit varian base paint daripada stok ribuan kode warna. Ini menurunkan modal kerja yang tertanam di stok (low working capital).
+Stok Pigmen & Kaleng: Jika stok pigmen warna tertentu habis atau kaleng kosong, pesanan tidak bisa dipenuhi meskipun cat dasar tersedia.
+Layanan (Service)
+Ketersediaan 100%: Pelanggan hampir pasti mendapatkan warna apa pun yang mereka inginkan tanpa risiko "stok warna X sedang kosong".
+Ketergantungan Mesin: Jika mesin tinting di toko rusak atau operator tidak terlatih, layanan terhenti total di titik tersebut.
+Logistik
+Pengiriman dari pabrik ke gudang regional lebih sederhana dan dalam volume besar (efisien).
+Perlu investasi alat (mesin tinting) dan pelatihan di banyak titik ritel.
+Notes :
+Strategi ini sangat cocok untuk pasar Indonesia yang luas. Bayangkan jika produsen harus menyetok semua varian warna di setiap pulau; biaya gudang akan membengkak dan banyak warna yang tidak laku akan kadaluwarsa (obsolete). Dengan postponement, risiko salah prediksi warna bisa diminimalisir.
+Latihan 4: Analisis Strategi OTIF Luar Jawa (85% → 95%)
+Berikut adalah perbandingan dua opsi strategi untuk mencapai target tersebut:
+Perbandingan Strategi
+Dimensi
+Opsi A: Menambah Hub Regional (Misal di Medan, Makassar, Balikpapan)
+Opsi B: Optimalisasi Jadwal & Buffer (Tetap Terpusat di Jawa)
+Kecepatan (SLA)
+Sangat Cepat. Barang sudah ada di pulau tujuan, pengiriman last-mile hanya butuh 1–2 hari.
+Lambat. Masih bergantung pada jadwal kapal/pesawat dari Jawa (bisa 5–14 hari).
+Biaya (Cost)
+Tinggi (Fixed Cost). Ada biaya sewa gudang, gaji karyawan baru, dan biaya operasional di tiap hub.
+Tinggi (Variable Cost). Biaya transportasi per unit lebih mahal karena sering kirim dalam jumlah kecil atau pakai udara agar cepat.
+Cash (Inventory)
+Boros. Terjadi penggandaan stok (stock duplication) di banyak lokasi. Modal kerja tertanam lebih banyak.
+Efisien. Stok terpusat di satu titik. Safety stock total lebih rendah karena adanya risk pooling.
+Risiko (Risk)
+Stok Mati (Dead Stock). Risiko barang tidak laku di satu hub sementara di hub lain kekurangan stok.
+Gangguan Logistik. Risiko cuaca buruk, pelabuhan macet, atau jadwal kapal batal yang langsung merusak OTIF.
+Analisis Mendalam untuk Konteks Indonesia
+1. Mengapa Opsi A Unggul untuk OTIF 95%?
+Di Indonesia, kendala terbesar luar Jawa adalah kepastian jadwal kapal. Jika kamu tetap mengirim dari Jawa, keterlambatan kapal 2 hari saja akan membuat OTIF kamu gagal. Dengan Hub Regional, barang sudah melewati "jalur merah" (laut) sebelum pelanggan memesan. Begitu ada pesanan, barang tinggal dikirim lewat darat. Inilah cara paling pasti untuk mencapai angka 95%.
+2. Kapan Memilih Opsi B?
+Opsi B lebih rasional jika produk kamu memiliki nilai tinggi tapi volume kecil (seperti handphone atau spare part mahal) yang memungkinkan dikirim via udara. Jika produknya adalah deterjen atau barang rumah tangga yang berat, Opsi B akan sangat mahal di ongkos kirim.
+Kesimpulan & Rekomendasi
+Jika targetnya adalah keunggulan layanan (95% OTIF) seperti bahasan segmentasi inventory di bab 2.6, secara konsisten di Indonesia Timur atau Sumatera:
+Gunakan Opsi A (Regional Hub) untuk produk Fast Mover (laris manis).
+Gunakan Opsi B (Centralized) untuk produk Slow Mover agar tidak ada stok yang "basi" di gudang daerah.
+Latihan 5: Diskusi Kasus – Layanan Cepat untuk Semua?
+Kebijakan: "SLA 2 hari untuk semua pelanggan di seluruh Indonesia."
+1. Argumen Pro (Mengapa ini terlihat menarik?)
+Keunggulan Kompetitif: Menjadi market leader karena memberikan standar layanan tertinggi yang mungkin tidak bisa dilakukan kompetitor.
+Kesederhanaan Operasional (di sisi Sales): Tim sales sangat mudah berjualan karena tidak perlu menghafal tabel SLA yang rumit. Satu janji untuk semua.
+Kepuasan Pelanggan Instan: Pada awalnya, semua pelanggan akan merasa sangat dihargai (seperti yang diceritakan pada vignette pembuka).
+2. Argumen Kontra (Mengapa ini berbahaya?)
+Margin Erosion (Kebocoran Profit): Biaya logistik (seperti kirim via udara atau kurir instan) untuk pesanan kecil akan memakan seluruh keuntungan dari produk tersebut.
+Over-Servicing: Banyak pelanggan B2B (seperti toko grosir) sebenarnya tidak butuh barang sampai dalam 2 hari; mereka lebih butuh kepastian jadwal mingguan agar mereka bisa mengatur gudang mereka sendiri.
+Operasional Chaos: Gudang akan selalu dalam mode "pemadam kebakaran" (lembur terus-menerus), yang meningkatkan risiko kesalahan kirim dan burnout karyawan.
+Inkonsistensi: Untuk wilayah luar Jawa yang terpencil, janji 2 hari hampir mustahil dipenuhi secara konsisten tanpa biaya yang sangat tidak masuk akal.
+3. Usulan Strategi: Segmentasi yang Rasional
+Daripada menyamakan semua, lebih baik menggunakan pendekatan Segmentasi Berbasis Kanal dan Geografi:
+E-commerce (B2C): Tetap gunakan SLA 1-2 hari (area kota besar) karena di kanal ini kecepatan adalah Order Winner. Gunakan biaya pengiriman yang dibebankan ke pembeli jika ingin layanan ekspres.
+Ritel Modern (B2B): Gunakan SLA Terjadwal (Fixed Schedule). Misalnya, pengiriman setiap Selasa dan Jumat. Fokusnya bukan pada kecepatan, tapi pada OTIF 100%.
+Distributor Tradisional: Gunakan SLA 3-5 hari dengan sistem minimum order yang tinggi untuk memaksimalkan efisiensi truk (konsolidasi).
+4. Cara Mengomunikasikannya ke Tim Sales
+Tim Sales biasanya akan protes jika layanan dikurangi. Berikut adalah cara "menjual" ide ini ke mereka:
+Gunakan Logika Profitabilitas: "Kita ingin bonus kalian aman. Jika kita terus kirim rugi ke pelanggan kecil dengan layanan kilat, profit perusahaan turun, dan itu berdampak ke budget komisi."
+Fokus pada Reliabilitas: "Lebih baik kita janji 4 hari dan selalu tepat (100% konsisten), daripada janji 2 hari tapi sering meleset. Janji yang meleset justru merusak hubungan kalian dengan pelanggan."
+Berikan Opsi: "Pelanggan tetap bisa dapat 2 hari, asalkan mereka masuk kategori Premium dengan volume pembelian tertentu. Ini bisa kalian pakai sebagai alat negosiasi agar mereka meningkatkan jumlah ordernya."

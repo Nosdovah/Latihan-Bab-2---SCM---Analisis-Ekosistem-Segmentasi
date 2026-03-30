@@ -6,7 +6,7 @@
 ## Syakila Desti Perianto - 023124084
 ## Raihan Hanif Firdaus - 023124157
 
-Visualisasi simplified supply chain management ASML
+Latihan Bab 2 - Analisis Ekosistem & Segmentasi
 
 https://analisisekosistemsegmentasi.vercel.app/
 
